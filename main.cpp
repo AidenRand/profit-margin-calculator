@@ -8,17 +8,37 @@ int main()
     std::cout << "Option 1 or 2: ";
     int choice;
     std::cin >> choice;
-    double net_profit, cost_of_goods, net_sales;
+    double cost_of_goods, revenue, operating_costs, interest, taxes;
     int margin;
+
+    // if the choice is one return gross profit margin
     if (choice == 1)
     {
         std::cout << "\nRevenue: ";
-        std::cin >> net_sales;
+        std::cin >> revenue;
         std::cout << "Cost of goods sold: ";
         std::cin >> cost_of_goods;
-        margin = (net_sales - cost_of_goods) * 100 / net_sales;
-        std::cout << "-------------------------" << std::endl;
+        margin = (revenue - cost_of_goods) / revenue * 100;
+        std::cout << "--------------------------" << std::endl;
         std::cout << "Gross profit margin: " << margin << "%\n";
-        std::cout << "-------------------------" << std::endl;
+        std::cout << "--------------------------" << std::endl;
+    }
+
+    if (choice == 2)
+    {
+        std::cout << "\nRevenue: ";
+        std::cin >> revenue;
+        std::cout << "Cost of goods sold: ";
+        std::cin >> cost_of_goods;
+        std::cout << "Operating costs: ";
+        std::cin >> operating_costs;
+        std::cout << "Interest: ";
+        std::cin >> interest;
+        std::cout << "Taxes: ";
+        std::cin >> taxes;
+        margin = (revenue - cost_of_goods - operating_costs - interest - taxes) / revenue * 100;
+        std::cout << "--------------------------" << std::endl;
+        std::cout << "Net profit margin: " << margin << "%\n";
+        std::cout << "--------------------------" << std::endl;
     }
 }
